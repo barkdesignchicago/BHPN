@@ -102,7 +102,7 @@
 
 		            </div>
 		            <div class="col-md-4">
-			            SIDEBAR
+			            <?php get_sidebar(); ?>
 		            </div>
 				</div>
             </div>
