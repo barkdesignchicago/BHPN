@@ -1,0 +1,400 @@
+body{
+  counter-reset: my-awesome-counter;
+}
+
+
+
+/* Section Overrides */
+section.cityscape {
+	background-color: #1d899d;
+	background-image: url(../images/bg_explainer_cityscape.jpg);
+	background-position:center top;
+	background-size:cover;
+	background-repeat:no-repeat;
+	h2{
+		color:#fff;
+	}
+}
+
+section.orangebars {
+	background-color: #f27322;
+	background-image: url(../images/section.orangebars-bg.jpg);
+	background-size: cover;
+	color: #fff;
+	padding-bottom: 40px;
+}
+section.orangebars a {
+	color: #fede06;
+}
+section.orangebars a:hover, section.orangebars a:active {
+	color: #fff;
+}
+
+
+.row-no-padding {
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+.intro-copy{
+	font-size:24px !important;
+	a{
+		color:#f27422;
+		text-decoration: underline;
+	}	
+}
+
+.mu-large-subnav{
+	h2{
+		margin-top:50px;
+	}
+	a{
+		display:block;
+		padding:15px 2px 0;
+		color:#f27422;
+		font-weight:bold;
+	}
+	p{
+		padding:0 2px;		
+	}
+}
+
+.mu-data-explainer-link{
+	h2{
+		margin-bottom:5px;
+		padding:0;
+		color:#fff;
+		font-weight:normal;
+	}
+	a{
+		font-weight:normal;
+		color:#fff;
+		&:hover{
+			color:#fff;
+		}
+	}
+}
+
+
+a.blue-box {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-top:20px;
+	background-color: #1d899d;
+	color: #fff !important;
+	display: inline-block;
+	font-size: .9375rem;
+	font-weight: bold;
+	padding: 12px 40px 12px 15px;
+	h2{
+		color:#fff;
+		font-size:29px;
+	}
+	&:hover{
+		color:#fff;
+	}
+	&.button{
+		background-color: #1d899d;
+		background-image: url("../images/bg_bluebox_cityscape.jpg");
+		background-position: left center;
+		background-size:cover;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		padding-right: 180px !important;
+
+	}
+	&.drop-shadow {
+		box-shadow: 5px 5px 0px rgba(1,1,1,.1);
+		-webkit-box-shadow: 5px 5px 0px rgba(1,1,1,.1);
+		-moz-box-shadow: 5px 5px 0px rgba(1,1,1,.1);
+	}
+}
+
+.mu-featured-resources{
+	margin-top:50px;
+	.featured{
+		padding:0 15px;
+	}
+	.wp-post-image{
+		padding-bottom:15px;
+	}
+	a{
+		color:#1ba7be; 
+		font-size:18px;
+		font-weight:bold;
+	}
+	p{
+		padding:5px 0;
+		font-size:15px;
+	}
+	h3{
+		margin:0 15px;
+		padding:40px 0 25px;
+		border-top:1px solid #787776;
+		font-size:18px;
+		font-weight:bold;
+		color:#1ba7be; 
+	}
+}
+
+.featured-resources{
+	@extend .mu-featured-resources;
+	h3{
+		margin:0;
+		border:0;
+	}
+}
+
+/* Accordion + / - styles */
+
+.panel-group{
+	margin:0 13px;
+}
+
+.panel{
+	margin:0;
+	border:0 !important;
+	box-shadow:0 !important;
+	
+}
+
+
+.panel-heading {
+	background-color:#fff !important;
+	counter-increment: my-awesome-counter;
+	position:relative;
+	padding:0 0 25px;
+	overflow: hidden;
+	&:before{
+		position: absolute;
+	    top:50%;
+	    left:0;
+	    -webkit-transform:translate(0, -50%);
+	    transform:translate(0, -50%);
+		padding:100px 25px;
+		content: counter(my-awesome-counter, decimal);
+		background-color:#fcd605;
+		text-align:center;
+		font-weight:bold;
+		color:#1ba7be;
+	}
+	a{
+		font-size:16px;
+		color:#1ba7be;
+		cursor: pointer;
+		padding:25px 15px 0px 80px;
+		display:block;
+		&:before {
+			content:"-";
+			padding-left:30px;
+			float: right;
+			color: #1ba7be;
+			font-family:"Macha" sans-serif;
+			font-size:24px;
+			line-height: 20px;
+		}
+
+		&:after {
+			float:right;
+			padding-right:5px;
+			color: #1ba7be;
+			padding-bottom:15px;
+
+		}
+		&.collapsed{
+			&:before{
+				content:"+";
+				font-family:"Macha" sans-serif;
+				font-size:24px;
+				line-height: 20px;
+			}
+			&:after {
+			}
+		}
+	}
+	h4{
+		font-size:12px;
+	}
+	span{
+		background-color: #fcd605;
+		padding:40px;
+		clear:both;
+	}
+	.visible-text{
+		padding:0 80px 25px 80px;
+		p{
+			padding:0;
+		}
+	}
+	&.deeper{
+		padding-bottom:0;
+		&:before{
+			background-color:#f27322;
+			color:#fff;
+		}
+		a{
+			color:#f27322;
+			&:before {
+				color: #f27322;
+			}
+	
+			&:after {
+				color: #f27322;
+			}
+
+		}
+	}
+}
+.panel-body{
+	padding:15px 80px 15px !important;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body{
+	border:0 !important;
+}
+
+#deeper-dive{
+	h2{
+		color: #1ba7be;
+		
+	}
+	h3{
+		color:#f27322
+	}
+	.deep-read-more{
+		color:#f27322;
+		font-size:13px
+	}
+}
+
+/* Sidebar */
+
+.accordion-quick-nav{
+	margin-bottom:20px;
+
+	background-color:#fff;
+	ol{
+		margin:0;
+		padding:25px 25px 25px 30px;
+		color:#1ba7be
+	}
+	li{
+		font-size:15px;
+		font-weight:bold;
+		padding:10px 0 10px ;
+	}
+	a{
+	}
+}
+
+.mu-side-nav-small{
+	margin:0;
+	padding:0;
+	list-style: none;
+	li{
+		margin-bottom:4px;
+		padding:15px 20px 15px 60px;
+		background-color:#f7ac2c;
+		background-position:12px center;
+		background-repeat:no-repeat;
+		&.page-item-3298{
+			background-image:url(../images/icon_sm_deeper_dive.png);
+		}
+		&.page-item-3300{
+			background-image:url(../images/icon_sm_measurement_stories.png);
+		}
+		&.page-item-3302{
+			background-image:url(../images/icon_sm_evidence_base.png);			
+		}
+		&.page-item-3304{
+			background-image:url(../images/icon_sm_mapping_tools.png);						
+		}
+		&.page-item-3306{
+			background-image:url(../images/icon_sm_measurement_tools.png);						
+		}
+		&.current_page_item{
+			background-color:#f27322;
+		}
+	}
+	a{
+		font-size:14px !important;
+		color:#fff;
+	}
+}
+
+.mu-tag-cloud{
+	margin-top:30px;
+	padding-top:15px;
+	border-top:1px solid grey;
+	h5{
+		color: #1ba7be;		
+	}
+	a{
+		color:#999
+	}
+	
+}
+
+/* What's New */
+
+.news-events{
+	.rule{
+		margin-top:30px;
+		padding:0;
+		border-top:1px solid #999;
+	}
+}
+
+.featured-news{
+	.featured-image{
+		padding-left:0;
+	}
+}
+
+.regular-news{
+	margin:0;
+	padding:0;
+	.article{
+		margin-bottom:20px; 
+		padding-bottom:20px;
+		border-bottom:1px solid #999;
+	}
+}
+
+/* Add 5 column layout for bootstrap */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
