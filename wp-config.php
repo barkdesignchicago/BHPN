@@ -24,13 +24,13 @@ if (!defined('DB_NAME')) {
 	define('DB_NAME', 'bhpn');
 }
 if (!defined('DB_USER')) {
-	define('DB_USER', 'root');
+	define('DB_USER', 'visualpercussi');
 }
 if (!defined('DB_PASSWORD')) {
-	define('DB_PASSWORD', 'root');
+	define('DB_PASSWORD', 'stinklaD');
 }
 if (!defined('DB_HOST')) {
-	define('DB_HOST', 'localhost');
+	define('DB_HOST', 'internal-db.s14648.gridserver.com');
 }
 
 /** Database Charset to use in creating database tables. */

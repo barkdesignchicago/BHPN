@@ -3,11 +3,21 @@
     <div class="row">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-10 col-sm-push-1 ">
+               	<?php 
+	            $header_image = get_field('bluebar_icon');
+				if( !empty($header_image) ): ?>
+					<div class="col-xs-2 col-sm-2 icon col-sm-push-1">					
+						<img src="<?php echo $header_image['url']; ?>" alt="<?php echo $header_image['alt']; ?>" />
+					</div>
+					<div class="col-xs-10 col-sm-8 header-with-icon">
+					<?php else: ?>
+					<div class="col-xs-12 col-sm-10 col-sm-push-1 ">
+					<?php endif; ?>	            
                     <header>
                         <h1><?php the_title(); ?></h1>
                     </header>
                     <?php the_content(); ?>
+
                 </div>
             </div>
         </div>
@@ -37,7 +47,7 @@
 
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3 sidebar">
 							<?php
 							$ancestor_id=3181;//this code is wrong
 							$descendants = get_pages(array('child_of' => $ancestor_id));
@@ -56,11 +66,15 @@
 							<ul class="mu-side-nav-small">
 							   <?php wp_list_pages(array("child_of" => $ancestor_id, "exclude" => $exclude, "link_before" => "", "title_li" => "", "sort_column" => "menu_order"));?>
 							</ul>	
-							<div class="mu-tag-cloud">
-							<h5>Tag Cloud:</h5>
-							<?php wp_tag_cloud( $args ); ?>
-								
-							</div>					
+							<?php if (is_active_sidebar('sidebar-right')) { ?> 
+									<div id="sidebar-right">
+										<?php do_action('before_sidebar'); ?> 
+										<?php dynamic_sidebar('sidebar-right'); ?> 
+									</div>
+							<?php } ?> 
+
+
+
 						</div>
 					</div>
 					

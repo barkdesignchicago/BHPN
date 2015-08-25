@@ -18,7 +18,7 @@
 				if(!empty($link)): 
 				?>
 				<p>
-					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $link;?>">Read More</a>
+					<a data-toggle="collapse" data-parent="#accordion" class="featured-read-more" href="#collapse<?php echo $link;?>">Read More</a>
 				</p>
 				<?php
 				endif;	

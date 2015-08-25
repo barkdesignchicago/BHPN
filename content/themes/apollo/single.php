@@ -11,7 +11,6 @@ get_header();
  * determine main column size from actived sidebar
  */
 ?>
-<section class="bluebars emptyheader"></section>
 						<?php 
 						while (have_posts()) {
 							the_post(); 

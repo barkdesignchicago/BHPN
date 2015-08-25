@@ -1,4 +1,4 @@
-<!-- debug: content-measureup.php -->
+<!-- debug: content-whats-news.php -->
 <section class="container bluebars">
     <div class="row">
         <div class="container">
@@ -47,8 +47,16 @@
 								<a href="<?php echo get_the_permalink();?>"><img src="<?php echo $theImage[0];?>" class="img-responsive"></a>
 							</div>
 							<div class="col-md-5">
-								<h3><a href="<?php echo get_the_permalink();?>"><?php echo get_the_title();?></a></h3>
-								<?php the_excerpt();?>
+								<h2><a href="<?php echo get_the_permalink();?>"><?php echo get_the_title();?></a></h2>
+								<div class="meta-info">
+			                        <?php get_template_part("content", "meta-date-cats-author")?>
+								</div>
+								<div class="featured-excerpt">
+									<?php the_field('quick_excerpt'); ?>
+									<p>
+										<a class="read-more" href="<?php echo get_the_permalink();?>">Read More</a>
+									</p>
+								</div>
 							</div>
 							<?php
 						endwhile;
@@ -80,10 +88,28 @@
 						<?php
 
 						while ($recent_news_query->have_posts()): $recent_news_query->the_post();
+							$smallImage = "";
 							?>
 								<div class="col-md-6">
 									<div class="article">
-										<?php the_title();?>
+										<?php
+										$smallImage = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
+										?>
+										<div class="small-image">
+											<a href="<?php the_permalink();?>"><img src="<?php echo $smallImage[0];?>" class="img-responsive"></a>
+											<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+											<div class="meta-info">
+						                        <?php get_template_part("content", "meta-date-cats-author")?>
+											</div>
+											<div class="article-excerpt">
+												<?php the_field('quick_excerpt'); ?>
+											</div>
+											<p>
+												<a class="read-more" href="<?php echo get_the_permalink();?>">Read More</a>
+											</p>
+										</div>
+
+
 									</div>
 								</div>
 							<?php
@@ -101,8 +127,15 @@
 					?>
 
 		            </div>
-		            <div class="col-md-4">
-			            <?php get_sidebar(); ?>
+		            <div class="col-md-3 col-sm-push-1 sidebar ">
+							<?php if (is_active_sidebar('sidebar-right')) { ?> 
+											<div id="sidebar-right">
+												<?php do_action('before_sidebar'); ?> 
+												<?php dynamic_sidebar('sidebar-right'); ?> 
+											</div>
+							<?php } ?> 
+
+
 		            </div>
 				</div>
             </div>

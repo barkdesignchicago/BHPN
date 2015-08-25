@@ -13,7 +13,6 @@
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-/*@ im port url('http://fonts.googleapis.com/css?family=Open+Sans:700,700italic,400,400italic,600,600italic,300,300italic');*/
 
 
 
@@ -23,7 +22,6 @@ html {
 body {
 	background-color: #f1f1f1;
 	color: #58585a;
-	font-size: 93.75%;
 	letter-spacing: .01em;
 	min-width: 400px;
 }
@@ -40,18 +38,18 @@ ARE PRETTY STANDARD, SO LET'S SET THOSE FIRST.
 */
 /* DEFAULT FONT FAMILY */
 body {
-	font-family: arial, helvetica, "sans-serif";
+	font-family: "proxima-nova", arial, helvetica, "sans-serif";
 }
 /* THE SPECIAL FONT ELEMENTS */
 h1, h2, h3, nav {
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	margin-top: 0px;
 }
 /* AND THE FONT WEIGHTS */
 h1 {
 	font-size: 1.7rem;
-	font-weight: 500;
-	margin-bottom: 30px;
+	font-weight: 700;
+	margin-bottom: 15px;
 }
 h2 {
 	color: #58585a;
@@ -112,7 +110,7 @@ span.dropcaps {
 	color: #1ba7bd;
 	display: inline-block;
 	float: left;
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	font-size: 308%;
 	margin-bottom: -15px;
 	margin-right: 5px;
@@ -148,8 +146,10 @@ section.bluebars {
 	background-color: #1ba7bd;
 	background-image: url("images/section.bluebars-bg.gif");
 	background-size: cover;
+	background-repeat:no-repeat;
 	color: #fff;
 	padding-bottom: 40px;
+	min-height:150px;
 }
 section.bluebars a {
 	color: #fede06;
@@ -157,6 +157,11 @@ section.bluebars a {
 section.bluebars a:hover, section.bluebars a:active {
 	color: #fff;
 }
+
+section.bluebars p {
+	font-size:17px;
+	}
+
 
 section.emptyheader {
 	height: 300px;
@@ -491,10 +496,17 @@ section.bluebars.emptyheader {
 	padding-top: 35px;
 	padding-bottom: 40px;
 	width: 100%;
+	font-family: "proxima-nova", arial, sans-serif;
 }
 
 #site-footer .footer-links {
 	margin-bottom: 30px;
+	padding-top:0 !important;
+}
+#site-footer .footer-links a{
+	font-size:15px;
+	display:block;
+
 }
 #site-footer .spacer:last-child {
 	display: none;
@@ -532,7 +544,7 @@ section.bluebars.emptyheader {
 	#site-footer .logo-bhpn {
 		margin-top: -35px;
 		margin-bottom: -40px;
-		padding: 35px 15px 40px;
+		padding: 35px 15px 160px;
 	}
 	#site-footer .logo-bhpn {
 		background-color: rgba(0,216,255,.5);
@@ -1067,7 +1079,7 @@ Homepage - Testimonials
 }
 #quotes .activeQuote {
 	background-color: #f1f1f1;
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	font-weight: 300;
 	margin: 20px 15px 15px 15px;
 	padding: 0;
@@ -1105,7 +1117,7 @@ Homepage - Testimonials
 }
 #quotes .activeQuote .quote-body {
 	color: #77787b;
-	font-family: arial, helvetica, sans-serif;
+	font-family: "proxima-nova", arial, helvetica, sans-serif;
 	text-indent: -.33em;
 	margin-bottom: 0;
 }
@@ -1432,7 +1444,7 @@ aside.filter-links {
 	margin-bottom: 10px;
 }
 aside.filter-links p {
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	font-size: 1.125rem;
 	font-weight: 500;
 }
@@ -1654,7 +1666,7 @@ About - team members
 	background-color: #09a0b8;
 	color: #fff;
 	float: right;
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	font-size: 1.125rem;
 	padding: 0;
 	width: 80%;
@@ -1747,7 +1759,7 @@ About - team members
 General pages
 */
 .page-content {
-	padding: 50px 8.3333%;
+	padding: 50px 4.3333%;
 	min-height: 400px;
 }
 .page-content header {
@@ -1811,14 +1823,6 @@ General pages
 	content: "• ";
 }
 
-.page-content ol {
-	counter-reset: item;
-}
-
-.page-content ol li:before {
-	content: counter(item) ". ";
-	counter-increment: item;
-}
 .page-content li ol {
 	
 }
@@ -2058,7 +2062,7 @@ Archive pages
 .taxonomies-filter-widget-form label {
 	color: #fede06;
 	cursor: pointer;
-	font-family: "prenton", arial, helvetica, sans-serif;
+	font-family: "macha", arial, helvetica, sans-serif;
 	font-size: 1.125rem;
 	font-weight: 700;
 	font-weight: 500;

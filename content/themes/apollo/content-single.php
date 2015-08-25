@@ -107,35 +107,97 @@
 
 
 ?>
-<section class="container">
+
+<!-- debug: content-single.php -->
+<section class="container bluebars">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-push-1 ">
+                    <header>
+						&nbsp;
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container single-entry">
     <div class="row">
         <div class="container">
             <div class="row">
                 <article class="col-xs-12 col-sm-10 col-sm-push-1 page-content bg-fff">
-                    <header>
-                        <h1><?php the_title(); ?></h1>
-                        <div class="social-share">
-                        	<a href="http://twitter.com/home?status=<?php echo $tweetMessage ?>" target="_blank"><img src="/content/themes/apollo/images/icon-share-t-gold.png"></a>
-                        	<a href="mailto:?subject=<?php echo $emailSubject ?>&body=<?php echo $emailBody ?>"><img src="/content/themes/apollo/images/icon-share-e-gold.png"></a>
-                        	<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlStringForThisPage; ?>" target="_blank"><img src="/content/themes/apollo/images/icon-share-f-gold.png"></a>
-<?php /*                        	<a class="typeform-share" href="https://buildhealthyplaces.typeform.com/to/lXmFlC" data-mode="1" target="_blank">Submit a Resource</a>&nbsp;&nbsp; |&nbsp;&nbsp; <a class="typeform-share" href="https://buildhealthyplaces.typeform.com/to/fUKQTX?" data-mode="1" target="_blank">Share Your Story</a>&nbsp;&nbsp; |&nbsp;&nbsp; <a href="/connect">Give Us Feedback</a></div> */ ?>
-                        </div>
-<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
+					<?php
+						$theImage = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
+					?>
+					<img src="<?php echo $theImage[0];?>" class="img-responsive" />
+					<div class="row">
+						<div class="col-md-9">
+		                    <header>
+		                        <h1><?php the_title(); ?></h1>
+		                        <h2><?php the_field('sub_header'); ?></h2>
+		                        <?php get_template_part("content", "meta-date-cats-author")?>
+		                    </header><!-- .entry-header -->
 
-                        <?php get_template_part("content", "meta-date-cats-author")?>
-                    </header><!-- .entry-header -->
-                    
-                    <?php if (get_field('resource_link')) { ?><a href="<?php echo get_field('resource_link') ?>" class="orange-box resource-link" target="_blank">View Resource</a><?php } ?>
-                    <div class=""><?php the_content(); ?></div>
-                    <div class="comments-holder"><?php
-    
-    
-    if (comments_open() || '0' != get_comments_number()) comments_template();
-    
-    
-    
-    
-                        ?></div>
+		                    <?php if (get_field('resource_link')) { ?><a href="<?php echo get_field('resource_link') ?>" class="orange-box resource-link" target="_blank">View Resource</a><?php } ?>
+		                    <div class=""><?php the_content(); ?></div>
+
+							<?php
+							// Load dynamic content layouts
+							require('includes/single-dynamic-layout.php');
+							?>
+
+							<?php
+								if(get_field('blog_author')):
+									$image = get_field('blog_author_image');
+									?>
+									<div class="row author-info">
+									<?php if( !empty($image) ): ?>
+										<div class="col-md-2">
+											<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="img-responsive" />
+										</div>
+										<div class="col-md-10">
+									<?php else: ?>
+										<div class="col-md-12">
+									<?php endif; ?>
+											<h4>About the Author</h4>
+											<a href="#"><?php the_field('blog_author'); ?></a>
+											<?php the_field('blog_author_bio'); ?>
+										</div>
+																					
+									</div>
+									
+									<?php									
+								endif;	
+							?>
+
+
+		                    
+		                    <div class="comments-holder">
+			                    <?php
+								if (comments_open() || '0' != get_comments_number()) comments_template();
+		                        ?>
+		                    </div>
+
+
+						</div>
+						<div class="col-md-3 sidebar">
+	                        <div class="social-share box">
+		                        <h3>Share</h3>
+	                        	<a href="http://twitter.com/home?status=<?php echo $tweetMessage ?>" target="_blank"><img src="/content/themes/apollo/images/icon-share-t-gold.png"></a>
+	                        	<a href="mailto:?subject=<?php echo $emailSubject ?>&body=<?php echo $emailBody ?>"><img src="/content/themes/apollo/images/icon-share-e-gold.png"></a>
+	                        	<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlStringForThisPage; ?>" target="_blank"><img src="/content/themes/apollo/images/icon-share-f-gold.png"></a>
+	                        </div>
+
+							<?php if (is_active_sidebar('sidebar-right')) { ?> 
+											<div id="sidebar-right">
+												<?php do_action('before_sidebar'); ?> 
+												<?php dynamic_sidebar('sidebar-right'); ?> 
+											</div>
+							<?php } ?> 
+
+						</div>
                 </article>
             </div>
         </div>

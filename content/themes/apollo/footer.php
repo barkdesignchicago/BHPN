@@ -10,20 +10,27 @@
     <div class="container" id="footer">
         <div class="row">
             <div class="col-xs-12 col-md-6 col-md-push-6 footer-links">
-                <?php echo strip_tags(wp_nav_menu(array(
-                    'menu' => 'Footer Links',
-                    'theme_location' => 'primary',
-                    'container' => false,
-                    'echo' => false,
-                    'before' => '',
-                    'after' => "<span class=\"spacer\">&nbsp;&nbsp; |&nbsp;&nbsp;</span>",
-                    'depth' => 0,
-                    'link_before' => '',
-                    'link_after' => '',
-                    'items_wrap' => '%3$s',
-                    'menu_class' => '',
-                    'walker' => new BootstrapBasicMyWalkerNavMenu()
-                )), '<a><span>'); ?>
+	            <div class="col-md-4 col-md-push-2">
+	                <?php echo strip_tags(wp_nav_menu(array(
+	                    'menu' => 'Footer Links',
+	                    'theme_location' => 'primary',
+	                    'container' => false,
+	                    'echo' => false,
+	                    'before' => '',
+	                    'depth' => 0,
+	                    'link_before' => '',
+	                    'link_after' => '',
+	                    'items_wrap' => '%3$s',
+	                    'menu_class' => '',
+	                )), '<a><span>'); ?>
+	            </div>
+	            <div class="col-md-6 col-md-push-2 footer-social-links">
+		            <a href="#" class="twitter-footer-link">@BHPNetwork</a>
+		            <a href="#" class="newsletter-footer-link">Stay informed.<br />Sign up for our newsletter &raquo;</a>
+	            </div>
+	            <div class="col-md-12 col-md-push-2 footer-copyright">
+		            &copy; <?php echo date('Y');?> Build Healthy Places Network&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Privacy Policy</a>
+	            </div>
             </div>
             <div class="col-xs-6 col-md-3 col-md-pull-6"><div class="logo logo-bhpn"><img class="img-responsive" src="/content/themes/apollo/images/ftr-logo.png"></div></div>
             <div class="col-xs-6 col-md-3 col-md-pull-6"><div class="logo"><a href="http://www.rwjf.org" target="_blank"><img class="img-responsive" src="/content/themes/apollo/images/ftr-logo-rwjf.png"></div></div></a>

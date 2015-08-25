@@ -3,7 +3,16 @@
     <div class="row">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-10 col-sm-push-1 ">
+               	<?php 
+	            $header_image = get_field('bluebar_icon');
+				if( !empty($header_image) ): ?>
+					<div class="col-xs-2 col-sm-2 col-sm-push-1">					
+						<img src="<?php echo $header_image['url']; ?>" alt="<?php echo $header_image['alt']; ?>" />
+					</div>
+					<div class="col-xs-10 col-sm-8">
+					<?php else: ?>
+					<div class="col-xs-12 col-sm-10 col-sm-push-1 ">
+					<?php endif; ?>	            
                     <header>
                         <h1><?php the_title(); ?></h1>
                     </header>
@@ -62,11 +71,11 @@
 								<?php endif; ?>
 					
 									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="img-responsive" />
-					
+									<?php echo $title; ?>
+
 								<?php if( $link ): ?>
 									</a>
 								<?php endif; ?>
-								<a href="<?php echo $link; ?>"><?php echo $title; ?></a>
 							    <?php echo wpautop($text); ?>
 					
 							</div>
@@ -86,7 +95,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-sm-push-1 ">
-					<a class="blue-box button">
+					<a class="blue-box button" href="<?php echo get_the_permalink(3286); ?>">
 						<h2>What We Talk About When We Talk About Measurement</h2>
 						<p>Everything you&rsquo;d want to know about measuring the health value of community development and neighborhood impact on health.</p>
 					</a>
